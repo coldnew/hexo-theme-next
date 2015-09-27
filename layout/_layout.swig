@@ -52,7 +52,9 @@
     <div class="back-to-top"></div>
   </div>
 
-  <script type="text/javascript" src="{{ url_for(theme.vendors) }}/jquery/index.js?v=2.1.3"></script>
+  <!-- <script type="text/javascript" src="{{ url_for(theme.vendors) }}/jquery/dist/jquery.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="{{ url_for(theme.vendors) }}/bootstrap/dist/css/bootstrap.min.css" type="text/css"> -->
+  <!-- <script type="text/javascript" src="{{ url_for(theme.vendors) }}/bootstrap/dist/js/bootstrap.min.js"></script> -->
 
   {# This block is used to set options before any other scripts run #}
   {% block script_extra_before %}{% endblock %}

@@ -2,6 +2,11 @@
     {% set theme.rss = config.root + config.feed.path %}
 {% endif %}
 
+<script type="text/javascript" src="{{ url_for(theme.vendors) }}/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="{{ url_for(theme.vendors) }}/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+<script type="text/javascript" src="{{ url_for(theme.vendors) }}/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ url_for(theme.js) }}/colorprompt.js"></script>
+
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -13,6 +18,7 @@
 {% if theme.google_site_verification %}
   <meta name="google-site-verification" content="{{ theme.google_site_verification }}" />
 {% endif %}
+
 
 {% if theme.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ theme.baidu_site_verification }}" />

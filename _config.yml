@@ -11,7 +11,7 @@ menu:
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo,next"
+keywords: "coldnew,clojure,clojurescript,lisp,linux"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -29,15 +29,15 @@ icon_font: default
 # Code Highlight theme
 # Available value: normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night
 
 
 # MathJax Support
-mathjax:
+mathjax: 
 
 
 # Schemes
-#scheme: Mist
+scheme: Mist
 
 
 # Sidebar, available value:
@@ -91,3 +91,26 @@ images: images
 
 # Theme version
 version: 0.4.5.1
+
+# Avatar
+avatar: http://www.gravatar.com/avatar/bda0c97c8dca6eb45824d1b83f477ad9
+
+# Disqus
+disqus_shortname: coldnew
+
+# Google Analytics
+google_analytics: UA-42122243-1
+
+# Since 2012
+since: 2012
+
+# Social
+social:
+  github: https://github.com/coldnew
+  google+: https://plus.google.com/u/0/106837301382084981260/posts
+
+
+# Creative Commons 4.0 International License.
+# http://creativecommons.org/
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+creative_commons: by-nc-sa
