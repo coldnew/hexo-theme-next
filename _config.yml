@@ -5,6 +5,7 @@ menu:
   #about: /about
   archives: /archives
   tags: /tags
+  feed: /rss.xml
   #commonweal: /404.html
 
 # Place your favicon.ico to /source directory.
@@ -16,7 +17,7 @@ keywords: "coldnew,clojure,clojurescript,lisp,linux"
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: /rss.xml
 
 # Icon fonts
 # Place your font into next/source/fonts, specify directory-name and font-name here
@@ -33,7 +34,7 @@ highlight_theme: night
 
 
 # MathJax Support
-mathjax: 
+mathjax:
 
 
 # Schemes
@@ -58,8 +59,8 @@ toc_list_number: true
 
 # Automatically Excerpt
 auto_excerpt:
-  enable: false
-  length: 150
+  enable: true
+  length: 300
 
 # Use Lato font
 # Note: this option is avialable only when the language is not `zh-Hans`
