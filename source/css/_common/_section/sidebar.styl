@@ -176,7 +176,6 @@
   cursor: pointer;
   border-bottom: 1px solid transparent;
   font-size: 15px;
-
   &:hover {
     color: $whitesmoke;
   }
@@ -221,6 +220,11 @@
     color: $grey-dark;
     &:hover {
       color: $grey-light;
+      background: inherit;
+    }
+    &:link {
+      background: inherit;
+      outline: none;
     }
   }
 }
@@ -235,6 +239,8 @@
 
 .post-toc .nav .active > a {
   color: $grey-light;
+  background: inherit;
+  outline: none;
 }
 
 .post-toc .nav .active-current > a {
