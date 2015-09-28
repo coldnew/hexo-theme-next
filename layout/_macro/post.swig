@@ -26,9 +26,9 @@
 
       <div class="post-meta">
         <span class="post-time">
-          {{ __('post.posted') }}
-          <time itemprop="dateCreated" datetime="{{ moment(post.date).format() }}" content="{{ date(post.date, config.date_format) }}">
-            {{ date(post.date, config.date_format) }}
+          {{ __('post.updated') }}
+          <time itemprop="dateCreated" datetime="{{ moment(post.updated).format() }}" content="{{ date(post.updated, config.date_format) }}">
+            {{ date(post.updated, config.date_format) }}
           </time>
         </span>
 
