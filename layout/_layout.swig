@@ -10,7 +10,7 @@
   {% include '_partials/old-browsers.swig' %}
   {% include '_scripts/analytics.swig' %}
 
-  <div class="container one-column {% block page_class %}{% endblock %}">
+  <div class="container-fluid one-column {% block page_class %}{% endblock %}">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -45,8 +45,10 @@
       {% block sidebar %}{% endblock %}
     </main>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner"> {% include '_partials/footer.swig' %} </div>
+    <footer id="footer" class="container">
+      <div class="footer">
+        <div class="footer-inner"> {% include '_partials/footer.swig' %} </div>
+      </div>
     </footer>
 
     <div class="back-to-top"></div>
