@@ -64,7 +64,7 @@ auto_excerpt:
 
 # Use Lato font
 # Note: this option is avialable only when the language is not `zh-Hans`
-use_font_lato: true
+use_font_lato: false
 
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
