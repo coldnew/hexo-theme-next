@@ -13,6 +13,7 @@ $(document).ready(function () {
 
   var userHighlight  = span ('<font color=\"lightgreen\">$1</font><font color=\"lightblue\">$2</font>');
   var rootHighlight  = span ('<font color=\"crimson\">$1</font><font color=\"lightblue\">$2</font>');
+  var promptHighlight  = span ('<font color=\"#FFFF75\">$1 </font>');
 
   // https://regex101.com/#javascript
   function color_shell_prompt(className) {
@@ -28,6 +29,9 @@ $(document).ready(function () {
       block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*[:~](.+)\/([^/]+)[#])/, rootHighlight);
       // highlight `hostname directory #' (Gentoo Linux root)
       block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*\w* [#])/, rootHighlight);
+      // highlight `user> ` (clojure repl)
+      block[i].innerHTML = block[i].innerHTML.replace(/^(user&gt;)\s/mg, promptHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(user>\s)/mg, promptHighlight);
     }
   }
 
