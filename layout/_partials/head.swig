@@ -19,6 +19,9 @@
   <meta name="google-site-verification" content="{{ theme.google_site_verification }}" />
 {% endif %}
 
+{% if theme.microsoft_site_verification %}
+  <meta name="msvalidate.01" content="{{ theme.microsoft_site_verification }}" />
+{% endif %}
 
 {% if theme.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ theme.baidu_site_verification }}" />
