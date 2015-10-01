@@ -43,3 +43,4 @@ $(document).ready(function () {
   color_shell_prompt('example');
   color_shell_prompt('src src-sh');
 });
+
