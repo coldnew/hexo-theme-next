@@ -29,9 +29,13 @@ $(document).ready(function () {
       block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*[:~](.+)\/([^/]+)[#])/, rootHighlight);
       // highlight `hostname directory #' (Gentoo Linux root)
       block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*\w* [#])/, rootHighlight);
-      // highlight `user> ` (clojure repl)
+      // highlight `user> ` or `user=>` (clojure repl)
       block[i].innerHTML = block[i].innerHTML.replace(/^(user&gt;)\s/mg, promptHighlight);
       block[i].innerHTML = block[i].innerHTML.replace(/^(user>\s)/mg, promptHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(user=&gt;)\s/mg, promptHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(user=>\s)/mg, promptHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(\s\s#_=&gt;)\s/mg, promptHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(\s\s#_=>\s)/mg, promptHighlight);
     }
   }
 
