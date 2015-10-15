@@ -54,3 +54,10 @@ $(document).ready(function () {
   color_clojure_prompt('example');
   color_clojure_prompt('src src-clojure');
 });
+
+
+function toggle_visible(id) {
+  var e = document.getElementById(id);
+  if (e.style.display == 'block' || e.style.display=='') e.style.display = 'none';
+  else e.style.display = 'block';
+}
