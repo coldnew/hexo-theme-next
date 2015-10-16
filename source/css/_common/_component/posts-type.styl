@@ -8,5 +8,16 @@
     blockquote {
       @extend .blockquote-center
     }
+
+  }
+  p.verse {
+    padding: 0 15px;
+    color: $grey-dim;
+    border-left: 4px solid $gray-lighter;
+
+    cite::before {
+      content: "-";
+      padding: 0 5px;
+    }
   }
 }
