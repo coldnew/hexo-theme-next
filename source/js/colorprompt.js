@@ -50,13 +50,14 @@ $(document).ready(function () {
 
   // color some class with shellprompt
   color_shell_prompt('example');
-  color_shell_prompt('src src-sh');
+  // color_shell_prompt('src src-sh');
   color_clojure_prompt('example');
   color_clojure_prompt('src src-clojure');
 });
 
 
 function toggle_visible(id) {
+  // toggle the conten
   var e = document.getElementById(id);
   if (e.style.display == 'block' || e.style.display=='') e.style.display = 'none';
   else e.style.display = 'block';
