@@ -112,7 +112,9 @@ social:
 
 
 microsoft_site_verification: A2F329127555BDD555949FFD886CFF2B
-baidu_site_verification: fwxmwVqWtK
+baidu_site_verification:
+  - fwxmwVqWtK
+  - 5z58vsAQKG
 
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
