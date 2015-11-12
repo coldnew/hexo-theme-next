@@ -22,15 +22,15 @@ $(document).ready(function () {
     var block = document.getElementsByClassName(className);
     for(var i = 0, l = block.length; i < l; i++) {
       // highlight `user@hostname directory $'
-      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*@\w*)(\s*[:~](.+)\/([^/]+)[$]\s)/, userHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*@\w*)(\s*[:~](.+)\/([^/]+)[$]\s)/mg, userHighlight);
       // highlight `user@hostname ~ $'
-      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*@\w*)(\s*[:~](.*)([^/]+)[$]\s)/, userHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*@\w*)(\s*[:~](.*)([^/]+)[$]\s)/mg, userHighlight);
       // highlight `root@hostname #'
-      block[i].innerHTML = block[i].innerHTML.replace(/^(root@\w*)(\s*[:~](.+)\/([^/]+)[#])/, rootHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(root@\w*)(\s*[:~](.+)\/([^/]+)[#])/mg, rootHighlight);
       // highlight `hostname #'
-      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*[:~](.+)\/([^/]+)[#])/, rootHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*[:~](.+)\/([^/]+)[#])/mg, rootHighlight);
       // highlight `hostname directory #' (Gentoo Linux root)
-      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*\w* [#])/, rootHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*\w* [#])/mg, rootHighlight);
     }
   }
 
