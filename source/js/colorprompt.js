@@ -26,9 +26,9 @@ $(document).ready(function () {
       // highlight `user@hostname ~ $'
       block[i].innerHTML = block[i].innerHTML.replace(/^(\w*@\w*)(\s*[:~](.*)([^/]+)[$]\s)/mg, userHighlight);
       // highlight `root@hostname #'
-      block[i].innerHTML = block[i].innerHTML.replace(/^(root@\w*)(\s*[:~](.+)\/([^/]+)[#])/mg, rootHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(root@\w*)(\s*[:~](.+)\/([^/]+)[#]\s)/mg, rootHighlight);
       // highlight `hostname #'
-      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*[:~](.+)\/([^/]+)[#])/mg, rootHighlight);
+      block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*[:~](.+)\/([^/]+)[#]\s)/mg, rootHighlight);
       // highlight `hostname directory #' (Gentoo Linux root)
       block[i].innerHTML = block[i].innerHTML.replace(/^(\w*)(\s*\w* [#])/mg, rootHighlight);
     }
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
   // color some class with shellprompt
   color_shell_prompt('example');
-  // color_shell_prompt('src src-sh');
+  color_shell_prompt('src src-sh');
   color_clojure_prompt('example');
   color_clojure_prompt('src src-clojure');
 });
