@@ -1,3 +1,4 @@
+<link rel="canonical" href="{{ config.url }}/{{ page.path }}" />
 <h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
   <a href="{{ config.root }}" class="brand" rel="start">
