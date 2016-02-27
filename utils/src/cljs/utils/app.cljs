@@ -1,6 +1,9 @@
-(ns utils.app)
+(ns utils.app
+  (:require [utils.color-prompt :refer [color-prompt]]))
+
+(defn debug-helper []
+  (.log js/console "starting clojurescript helper for coldnew's blog."))
 
 (defn init []
-  (let [c (.. js/document (createElement "DIV"))]
-    (aset c "innerHTML" "<p>i'm dynamically created</p>")
-    (.. js/document (getElementById "container") (appendChild c))))
+  (debug-helper)
+  (color-prompt))

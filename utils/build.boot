@@ -1,12 +1,17 @@
 (set-env!
  :source-paths    #{"src/cljs"}
  :resource-paths  #{"resources"}
- :dependencies '[[adzerk/boot-cljs          "1.7.48-6"   :scope "test"]
-                 [adzerk/boot-cljs-repl     "0.2.0"      :scope "test"]
-                 [adzerk/boot-reload        "0.4.1"      :scope "test"]
-                 [pandeiro/boot-http        "0.6.3"      :scope "test"]
-                 [org.clojure/clojurescript "1.7.122"]
-                 [crisptrutski/boot-cljs-test "0.2.0-SNAPSHOT" :scope "test"]])
+ :dependencies '[[adzerk/boot-cljs          "1.7.228-1"  :scope "test"]
+                 [adzerk/boot-cljs-repl     "0.3.0"      :scope "test"]
+                 [adzerk/boot-reload        "0.4.5"      :scope "test"]
+                 [pandeiro/boot-http        "0.7.3"      :scope "test"]
+                 [org.clojure/clojurescript "1.7.228"]
+                 [crisptrutski/boot-cljs-test "0.2.0-SNAPSHOT" :scope "test"]
+                 [com.cemerick/piggieback    "0.2.1" :scope "test"]
+                 [weasel                     "0.7.0" :scope "test"]
+                 [org.clojure/tools.nrepl    "0.2.12" :scope "test"]
+                 [domina "1.0.3"]
+                 [hipo "0.5.2"]])
 
 (require
  '[adzerk.boot-cljs      :refer [cljs]]
@@ -16,24 +21,23 @@
  '[crisptrutski.boot-cljs-test :refer [test-cljs]])
 
 (deftask build []
-  (comp (speak)
-        
-        (cljs)
-        ))
+  (comp
+   (cljs)))
 
 (deftask run []
   (comp (serve)
         (watch)
         (cljs-repl)
         (reload)
+        (speak)
         (build)))
 
 (deftask production []
-  (task-options! cljs {:optimizations :advanced})
+  (task-options! cljs {:optimizations :advanced :parallel-build true})
   identity)
 
 (deftask development []
-  (task-options! cljs {:optimizations :none :source-map true}
+  (task-options! cljs {:optimizations :none :source-map true :parallel-build true}
                  reload {:on-jsload 'utils.app/init})
   identity)
 
@@ -43,6 +47,11 @@
   (comp (development)
         (run)))
 
+(deftask prod
+  "Simple alias to run application in production mode"
+  []
+  (comp (production)
+        (build)))
 
 (deftask testing []
   (set-env! :source-paths #(conj % "test/cljs"))
