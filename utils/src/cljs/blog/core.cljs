@@ -1,5 +1,5 @@
-(ns utils.app
-  (:require [utils.color-prompt :refer [color-prompt]]))
+(ns blog.core
+  (:require [blog.color-prompt :refer [color-prompt]]))
 
 (enable-console-print!)
 

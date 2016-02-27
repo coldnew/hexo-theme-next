@@ -1,4 +1,4 @@
-{:require  [utils.app]
- :init-fns [utils.app/init]
+{:require  [blog.core]
+ :init-fns [blog.core/init]
  ;; for `hexo s`
  :compiler-options {:asset-path "http://localhost:4000/js/app.out"}}

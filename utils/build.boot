@@ -38,7 +38,7 @@
 
 (deftask development []
   (task-options! cljs {:optimizations :none :source-map true :parallel-build true}
-                 reload {:on-jsload 'utils.app/init})
+                 reload {:on-jsload 'blog.core/init})
   identity)
 
 (deftask dev

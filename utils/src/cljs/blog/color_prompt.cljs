@@ -1,4 +1,4 @@
-(ns utils.color-prompt
+(ns blog.color-prompt
   (:require [clojure.string :as str]))
 
 (defn- span [x y]
