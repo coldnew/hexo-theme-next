@@ -17,7 +17,7 @@
 (def ^:private
   prompt-highlight (span "<font color=\"#FFFF75\">$1</font>" "$2"))
 
-(defn- color-shell-prompt [classname]
+(defn color-shell-prompt [classname]
   (let [block (.getElementsByClassName js/document classname)
         length (.-length block)]
     (loop [i 0]
@@ -26,15 +26,15 @@
           (set! (.-innerHTML target)
                 (->> (str/split (.-innerHTML target) #"\n")
                      ;; ex: root@raspberrypi:/home/pi#
-                    (map #(str/replace % #"(root@\w*)(\s*)(.*\#\s)(.*)" root-highlight))
-                    ;; ex: "coldnew@Gentoo ~ $ ./zephyr-sdk-0.7.2-i686-setup.run"
-                    (map #(str/replace % #"(\w*@\w*)(\s*)(.*\$\s)(.*)" user-highlight))
-                    ;; ex: Rosia msp430 # emerge mspdebug
-                    (map #(str/replace % #"(\w*)(\s*)(.*\#\s)(.*)" root-highlight))
-                    (str/join "\n"))))
+                     (map #(str/replace % #"(root@\w*)(\s*)(.*\#\s)(.*)" root-highlight))
+                     ;; ex: "coldnew@Gentoo ~ $ ./zephyr-sdk-0.7.2-i686-setup.run"
+                     (map #(str/replace % #"(\w*@\w*)(\s*)(.*\$\s)(.*)" user-highlight))
+                     ;; ex: Rosia msp430 # emerge mspdebug
+                     (map #(str/replace % #"(\w*)(\s*)(.*\#\s)(.*)" root-highlight))
+                     (str/join "\n"))))
         (recur (inc i))))))
 
-(defn- color-clojure-prompt [classname]
+(defn color-clojure-prompt [classname]
   (let [block (.getElementsByClassName js/document classname)
         length (.-length block)]
     (loop [i 0]
@@ -58,7 +58,6 @@
   (color-shell-prompt "src src-sh")
   (color-clojure-prompt "example")
   (color-clojure-prompt "src src-clojure"))
-
 
 ;; This code rewrite based on my original javascript code (as below, which need jquery)
 (comment

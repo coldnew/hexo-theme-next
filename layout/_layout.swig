@@ -98,5 +98,6 @@
       });
     });
   </script>
+  <script type="text/javascript" src="{{ url_for(theme.js) }}/app.js"></script>
 </body>
 </html>
