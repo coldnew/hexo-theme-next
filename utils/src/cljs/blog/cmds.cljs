@@ -2,7 +2,7 @@
   (:require [clojure.string :as str]))
 
 ;; for control toggle visible in 4clojure practice.
-;; #+ATTR_HTML: :class btn btn-default :onclick blog.core.toggle_visible('p001')
+;; #+ATTR_HTML: :class btn btn-default :onclick blog.cmds.toggle_visible('p001')
 (defn ^:export toggle-visible [id]
   (let [e (.getElementById js/document id)
         s (-> e .-style .-display)]
