@@ -1,5 +1,7 @@
 (ns blog.core
-  (:require [blog.color-prompt :refer [color-prompt]]))
+  (:require [blog.color-prompt :refer [color-prompt]]
+            ;; import this for export cmds
+            [blog.cmds]))
 
 (enable-console-print!)
 
