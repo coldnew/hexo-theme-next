@@ -1,5 +1,6 @@
 (ns blog.core
   (:require [blog.color-prompt :refer [color-prompt]]
+            [blog.color-tree :refer [color-tree]]
             ;; import this for export cmds
             [blog.cmds]))
 
@@ -19,4 +20,5 @@
 
 (defn init []
   (debug-helper)
-  (color-prompt))
+  (color-prompt)
+  (color-tree))

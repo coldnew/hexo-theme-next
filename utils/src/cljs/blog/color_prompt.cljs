@@ -55,54 +55,11 @@
                      (str/join "\n"))))
         (recur (inc i))))))
 
-(defn- tree [x1 x2 x3 color]
-  (str x1 "<font color=\"" color "\">" x2 "</font>" x3))
-(defn- treeB
-  ([x1 x2 x3] (tree x1 x2 x3 "lightblue"))
-  ([x1 x2] (treeB x1 x2 ""))
-  ([x2]    (treeB "" x2 "")))
-(defn- treeR
-  ([x1 x2 x3] (tree x1 x2 x3 "#ff3232"))
-  ([x1 x2] (treeR x1 x2 ""))
-  ([x2]    (treeR "" x2 "")))
-(defn- treeG
-  ([x1 x2 x3] (tree x1 x2 x3 "lightgreen"))
-  ([x1 x2] (treeG x1 x2 ""))
-  ([x2]    (treeG "" x2 "")))
-(defn- color-tree-prompt [classname]
-  (let [block (.getElementsByClassName js/document classname)
-        length (.-length block)]
-    (loop [i 0]
-      (when (< i length)
-        (let [target (aget block i)]
-          (set! (.-innerHTML target)
-                (->> (str/split (.-innerHTML target) #"\n")
-                     ;; highlight `. <b>` for blue color
-                     (replace-line-starts #"(\.\s*)(&lt;b&gt;)" (treeB "$1"))
-                     ;; building for: FIXME: only support level 2 treeB
-                     ;; blue
-                     (replace-line-starts #"([├─└─]*\s*)([\w\-\.]*\s*)(&lt;b&gt;)" (treeB "$1" "$2"))
-                     (replace-line-starts #"(│&nbsp;&nbsp;\s*[├─└─]*\s*)([\w\-\.]*\s*)(&lt;b&gt;)" (treeB "$1" "$2"))
-                     (replace-line-starts #"(│&nbsp;&nbsp;\s│&nbsp;&nbsp;\s[├─└─\s]*\s*)([\w\-\.]*\s*)(&lt;b&gt;)" (treeB "$1" "$2"))
-                     ;; red
-                     (replace-line-starts #"([├─]*\s*)([\w\-\.]*\s*)(&lt;r&gt;)" (treeR "$1" "$2"))
-                     (replace-line-starts #"(│&nbsp;&nbsp;\s*[├─└─]*\s*)([\w\-\.]*\s*)(&lt;r&gt;)" (treeR "$1" "$2"))
-                     (replace-line-starts #"(│&nbsp;&nbsp;\s│&nbsp;&nbsp;\s[├─└─\s]*\s*)([\w\-\.]*\s*)(&lt;r&gt;)" (treeR "$1" "$2"))
-                     ;; green
-                     (replace-line-starts #"(│&nbsp;&nbsp;\s*[├─└─\s]*\s*)([\w\-\.]*\s*)(&lt;g&gt;)" (treeG "$1" "$2"))
-                     (replace-line-starts #"(│&nbsp;&nbsp;\s│&nbsp;&nbsp;\s[├─└─\s]*\s*)([\w\-\.]*\s*)(&lt;g&gt;)" (treeG "$1" "$2"))
-                     (replace-line-starts #"([├─└─]*\s*)([\w\-\.]*\s*)(&lt;g&gt;)" (treeG "$1" "$2"))
-
-                     (str/join "\n")))
-          (.log js/console (.-innerHTML target)))
-        (recur (inc i))))))
-
 (defn color-prompt []
   (color-shell-prompt "example")
   (color-shell-prompt "src src-sh")
   (color-clojure-prompt "example")
-  (color-clojure-prompt "src src-clojure")
-  (color-tree-prompt "example"))
+  (color-clojure-prompt "src src-clojure"))
 
 ;; This code rewrite based on my original javascript code (as below, which need jquery)
 (comment
