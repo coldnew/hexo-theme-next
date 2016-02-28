@@ -5,7 +5,6 @@
 <script type="text/javascript" src="{{ url_for(theme.vendors) }}/jquery/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="{{ url_for(theme.vendors) }}/bootstrap/dist/css/bootstrap.min.css" type="text/css">
 <script type="text/javascript" src="{{ url_for(theme.vendors) }}/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{{ url_for(theme.js) }}/colorprompt.js"></script>
 <script type="text/javascript" src="{{ url_for(theme.js) }}/responsive.js"></script>
 
 <meta charset="UTF-8"/>
