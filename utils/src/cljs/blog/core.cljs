@@ -20,7 +20,7 @@
   (color-prompt))
 
 ;; for control toggle visible in 4clojure practice.
-;; #+ATTR_HTML: :class btn btn-default :onclick toggle_visible('p001')
+;; #+ATTR_HTML: :class btn btn-default :onclick blog.core.toggle_visible('p001')
 (defn ^:export toggle-visible [id]
   (.log js/console (str "toffll2 " id))
   (let [e (.getElementById js/document id)
