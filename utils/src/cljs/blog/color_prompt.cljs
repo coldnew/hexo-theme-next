@@ -8,48 +8,50 @@
         extra "<span style=\"width: 0; height: 0; display: inline-block; overflow: hidden;\"><span style=\"display: block;\"></span></span>"]
     (str pre x pos extra y)))
 
-(def ^:private
-  user-highlight (span "<font color=\"lightgreen\">$1</font>$2<font color=\"lightblue\">$3</font>" "$4"))
+(defn- replace-line-starts
+  "Replace line-seqs for every starts. if match to regexp. This function make cljs regexp work as ^regex.
+  I use this function due to current cljs doesn't support #\"(?m)^xxx$\" regexp, which work on clojure."
+  [regex newval seq]
+  (map #(if (str/starts-with? % (->> (re-find regex %) rest str/join ))
+          (str/replace % regex newval)
+          %) seq))
 
-(def ^:private
-  root-highlight (span "<font color=\"crimson\">$1</font>$2<font color=\"lightblue\">$3</font>" "$4"))
-
-(def ^:private
-  prompt-highlight (span "<font color=\"#FFFF75\">$1</font>" "$2"))
-
-(defn color-shell-prompt [classname]
+(defn- color-shell-prompt [classname]
   (let [block (.getElementsByClassName js/document classname)
-        length (.-length block)]
+        length (.-length block)
+        user-highlight (span "<font color=\"lightgreen\">$1</font>$2<font color=\"lightblue\">$3</font>" "$4")
+        root-highlight (span "<font color=\"crimson\">$1</font>$2<font color=\"lightblue\">$3</font>" "$4")]
     (loop [i 0]
       (when (< i length)
         (let [target (aget block i)]
           (set! (.-innerHTML target)
                 (->> (str/split (.-innerHTML target) #"\n")
                      ;; ex: root@raspberrypi:/home/pi#
-                     (map #(str/replace % #"(root@\w*)(\s*)(.*\#\s)(.*)" root-highlight))
+                     (replace-line-starts #"(root@\w*)(\s*)(.*\#\s)(.*)" root-highlight)
                      ;; ex: "coldnew@Gentoo ~ $ ./zephyr-sdk-0.7.2-i686-setup.run"
-                     (map #(str/replace % #"(\w*@\w*)(\s*)(.*\$\s)(.*)" user-highlight))
+                     (replace-line-starts #"(\w*@\w*)(\s*)(.*\$\s)(.*)" user-highlight)
                      ;; ex: Rosia msp430 # emerge mspdebug
-                     (map #(str/replace % #"(\w*)(\s*)(.*\#\s)(.*)" root-highlight))
+                     (replace-line-starts #"(\w*)(\s*)(.*\#\s)(.*)" root-highlight)
                      (str/join "\n"))))
         (recur (inc i))))))
 
-(defn color-clojure-prompt [classname]
+(defn- color-clojure-prompt [classname]
   (let [block (.getElementsByClassName js/document classname)
-        length (.-length block)]
+        length (.-length block)
+        prompt-highlight (span "<font color=\"#FFFF75\">$1</font>" "$2")]
     (loop [i 0]
       (when (< i length)
         (let [target (aget block i)]
           (set! (.-innerHTML target)
                 (->> (str/split (.-innerHTML target) #"\n")
                      ;; highlight `user> ` or `user=>` (clojure repl)
-                     (map #(str/replace % #"(user&gt;\s*)(.*)" prompt-highlight))
-                     (map #(str/replace % #"(user>\s*)(.*)" prompt-highlight))
+                     (replace-line-starts #"(user&gt;\s*)(.*)" prompt-highlight)
+                     (replace-line-starts #"(user>\s*)(.*)"    prompt-highlight)
                      ;; this should not change color
-                     (map #(str/replace % #"(user=&gt;\s)(.*)" "$1$2"))
-                     (map #(str/replace % #"(user=>\s)(.*)" "$1$2"))
-                     (map #(str/replace % #"(\s\s#_=&gt;\s)(.*)" "$1$2"))
-                     (map #(str/replace % #"(\s\s#_=>\s)(.*)" "$1$2"))
+                     (replace-line-starts #"(user=&gt;\s)(.*)"   "$1$2")
+                     (replace-line-starts #"(user=>\s)(.*)"      "$1$2")
+                     (replace-line-starts #"(\s\s#_=&gt;\s)(.*)" "$1$2")
+                     (replace-line-starts #"(\s\s#_=>\s)(.*)"    "$1$2")
                      (str/join "\n"))))
         (recur (inc i))))))
 
