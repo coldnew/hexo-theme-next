@@ -22,10 +22,9 @@
 ;; for control toggle visible in 4clojure practice.
 ;; #+ATTR_HTML: :class btn btn-default :onclick blog.core.toggle_visible('p001')
 (defn ^:export toggle-visible [id]
-  (.log js/console (str "toffll2 " id))
   (let [e (.getElementById js/document id)
         s (-> e .-style .-display)]
     (set! (-> e .-style .-display)
-     (if (or (= s "block") (= s ""))
-       "none"
-       "block"))))
+          (if (or (= s "block") (= s ""))
+            "none"
+            "block"))))
