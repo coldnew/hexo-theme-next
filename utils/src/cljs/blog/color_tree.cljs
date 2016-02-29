@@ -58,7 +58,9 @@
                      (replace-line-starts #"(│&nbsp;&nbsp;\s│&nbsp;&nbsp;\s[├─└─\s]*\s*)([\w\-\.]*\s*)(&lt;g&gt;)" (treeG "$1" "$2"))
                      (replace-line-starts #"([├─└─]*\s*)([\w\-\.]*\s*)(&lt;g&gt;)" (treeG "$1" "$2"))
                      ;; link
+                     (replace-line-starts #"([├─└─\s]*\s*)(.*\s*)(-&gt;)(.*\s*)(&lt;lb&gt;)" (treeLB "$1" "$2" "$3" "$4"))
                      (replace-line-starts #"(│&nbsp;&nbsp;\s*[├─└─\s]*\s*)(.*\s*)(-&gt;)(.*\s*)(&lt;lb&gt;)" (treeLB "$1" "$2" "$3" "$4"))
+                     (replace-line-starts #"([├─└─\s]*\s*)(.*\s*)(-&gt;)(.*\s*)(&lt;lw&gt;)" (treeLW "$1" "$2" "$3" "$4"))
                      (replace-line-starts #"(│&nbsp;&nbsp;\s*[├─└─\s]*\s*)(.*\s*)(-&gt;)(.*\s*)(&lt;lw&gt;)" (treeLW "$1" "$2" "$3" "$4"))
                      ;; color word with color hint: outdir<b>  , README.txt<g>
                      (map #(str/replace % #"(\w*)(&lt;b&gt;)" "<font color=\"lightblue\">$1</font>"))
