@@ -2,7 +2,8 @@
   (:require [clojure.string :as str]))
 
 (defn- span [x y]
-  (let [pre "<span onmousedown=\"return false;\" onselectstart=\"return false;\">"
+  (let [;; pre "<span onmousedown=\"return false;\" onselectstart=\"return false;\">"
+        pre "<span style=\"-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;\" onmousedown=\"return false;\" onselectstart=\"return false;\" ondragstart=\"return false\">"
         pos "</span>"
         ;; extra is to make commandline can easy copy without copy the prompt
         extra "<span style=\"width: 0; height: 0; display: inline-block; overflow: hidden;\"><span style=\"display: block;\"></span></span>"]
