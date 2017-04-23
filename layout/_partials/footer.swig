@@ -4,7 +4,7 @@
   {{ "Copyright " }} &copy; &nbsp; {% if theme.since and theme.since != current %} {{ theme.since }} - {% endif %}
   <span itemprop="copyrightYear">{{ current }}</span>
   <span class="author" itemprop="copyrightHolder">{{ config.author }}</span>
- {{ " " }} &middot; {{ " Powered by " }} <a href="https://github.com/coldnew/org-hexo" target="_blank">org-hexo</a>
+ {{ " " }} &middot; {{ " Powered by " }} <a href="https://github.com/coldnew/hexo-renderer-org" target="_blank">coldnew/hexo-renderer-org</a>
 </div>
 
 <!--
