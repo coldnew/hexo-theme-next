@@ -5,7 +5,7 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="{{ config.language }}">
+<body itemscope itemtype="https://schema.org/WebPage" lang="{{ config.language }}">
 
   {% include '_partials/old-browsers.swig' %}
   {% include '_scripts/analytics.swig' %}
@@ -13,7 +13,7 @@
   <div class="container-fluid one-column {% block page_class %}{% endblock %}">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>
 
