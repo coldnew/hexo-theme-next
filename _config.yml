@@ -94,7 +94,7 @@ images: images
 version: 0.4.5.1
 
 # Avatar
-avatar: http://www.gravatar.com/avatar/bda0c97c8dca6eb45824d1b83f477ad9
+avatar: https://www.gravatar.com/avatar/bda0c97c8dca6eb45824d1b83f477ad9
 
 # Disqus
 disqus_shortname: coldnew
