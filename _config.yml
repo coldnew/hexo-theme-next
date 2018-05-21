@@ -99,6 +99,16 @@ avatar: https://www.gravatar.com/avatar/bda0c97c8dca6eb45824d1b83f477ad9
 # Disqus
 disqus_shortname: coldnew
 
+# gitalk
+gitalk:
+    enable: true
+    github_user: coldnew
+    github_repo: https://github.com/coldnew/coldnew.github.io
+    client_id: b68fc8fd50fcc051b95e
+    client_secret: 7f005263788db4a303b57e8296bb6800de1f9acf
+    admin: coldnew
+    distractionFreeMode: true
+
 # Google Analytics
 google_analytics: UA-42122243-1
 

@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="theme-next {% if theme.use_motion %}use-motion{% endif %} {% if theme.scheme %}theme-next-{{ theme.scheme | lower }}{% endif %}">
-<head>
+  <head>
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
 </head>
@@ -21,18 +21,10 @@
       <div class="main-inner">
         <div id="content" class="content"> {% block content %}{% endblock %} </div>
 
-        {% if (theme.duoshuo_hotartical and page.title) %}
-            <!-- 多说热评文章-->
-            <p>热评文章</p>
-            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-        {% endif %}
-
         {% if page.comments %}
           <div class="comments" id="comments">
-            {% if (theme.duoshuo and theme.duoshuo.shortname) or theme.duoshuo_shortname %}
-              <div class="ds-thread" data-thread-key="{{ page.path }}"
-                   data-title="{{ page.title }}" data-url="{{ page.permalink }}">
-              </div>
+            {% if theme.gitalk.enable %}
+               <div id="gitalk-container"></div>
             {% elseif theme.disqus_shortname %}
               <div id="disqus_thread">
                 <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -99,5 +91,6 @@
     });
   </script>
   <script type="text/javascript" src="{{ url_for(theme.js) }}/app.js"></script>
+{% include '_partials/gitalk.swig' %}
 </body>
 </html>
