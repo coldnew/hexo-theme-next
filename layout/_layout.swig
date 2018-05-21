@@ -25,10 +25,6 @@
           <div class="comments" id="comments">
             {% if theme.gitalk.enable %}
                <div id="gitalk-container"></div>
-            {% elseif theme.disqus_shortname %}
-              <div id="disqus_thread">
-                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </div>
             {% endif %}
           </div>
         {% endif %}
@@ -54,7 +50,6 @@
   {% block script_extra_before %}{% endblock %}
   {% block comment_system %}
     {% include '_scripts/comments/duoshuo.swig' %}
-    {% include '_scripts/comments/disqus.swig' %}
   {% endblock %}
   {% include '_scripts/fancy-box.swig' %}
   {% include '_scripts/helpers.swig' %}
