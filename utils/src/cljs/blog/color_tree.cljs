@@ -45,11 +45,14 @@
                      (replace-line-starts #"(\.\s*)(&lt;b&gt;)" (treeB "$1"))
                      ;; highlight `/usr/local <b>` for blue color
                      (replace-line-starts #"(/.*\s*)(&lt;b&gt;)" (treeB "$1"))
+                     ;; highlight `./image/ <b>` for blue color
+                     (replace-line-starts #"(\./.*\s*)(&lt;b&gt;)" (treeB "$1"))
                      ;; blue
                      (replace-line-starts #"([├─└─]*\s*)([\w\-\.]*\s*)(&lt;b&gt;)" (treeB "$1" "$2"))
                      (replace-line-starts #"(│&nbsp;&nbsp;\s*[├─└─]*\s*)([\w\-\.]*\s*)(&lt;b&gt;)" (treeB "$1" "$2"))
                      (replace-line-starts #"(│&nbsp;&nbsp;\s│&nbsp;&nbsp;\s[├─└─\s]*\s*)([\w\-\.]*\s*)(&lt;b&gt;)" (treeB "$1" "$2"))
                      ;; red
+                     (replace-line-starts #"(\s*[├─]*\s*)([\w\-\.]*\s*)(&lt;r&gt;)" (treeR "$1" "$2"))
                      (replace-line-starts #"([├─]*\s*)([\w\-\.]*\s*)(&lt;r&gt;)" (treeR "$1" "$2"))
                      (replace-line-starts #"(│&nbsp;&nbsp;\s*[├─└─]*\s*)([\w\-\.]*\s*)(&lt;r&gt;)" (treeR "$1" "$2"))
                      (replace-line-starts #"(│&nbsp;&nbsp;\s│&nbsp;&nbsp;\s[├─└─\s]*\s*)([\w\-\.]*\s*)(&lt;r&gt;)" (treeR "$1" "$2"))
