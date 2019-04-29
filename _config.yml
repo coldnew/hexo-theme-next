@@ -116,12 +116,26 @@ since: 2012
 social:
   github: https://github.com/coldnew
   google+: https://plus.google.com/u/0/106837301382084981260/posts
+  linkedln: https://www.linkedin.com/in/coldnew/
 
 
 microsoft_site_verification: A2F329127555BDD555949FFD886CFF2B
 baidu_site_verification:
   - fwxmwVqWtK
   - 5z58vsAQKG
+
+# Google Webmaster tools verification setting
+# See: https://www.google.com/webmasters
+google_site_verification: 2KupV-VpD04LYh25td4WXU0FNSfAQUQjYs13zPnAXls
+
+# Bing Webmaster tools verification setting
+# See: https://www.bing.com/webmaster
+#bing_site_verification:
+
+# Yandex Webmaster tools verification setting
+# See: https://webmaster.yandex.ru
+#yandex_site_verification:
+
 
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
